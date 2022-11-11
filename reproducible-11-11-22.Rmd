@@ -54,3 +54,12 @@ Das ist der Mean von *glucose*: $`r x`$
 Habe ich noch nicht verstanden
 
 Eine neue Nachricht: Hallo Ashutosh
+
+```{r chunk5, include=TRUE, echo=FALSE, warning=FALSE}
+pima |>
+  ggplot(
+    aes(mass, glucose, colour = diabetes)) +
+  geom_violin()
+```
+
+  )
