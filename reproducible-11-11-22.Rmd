@@ -68,6 +68,9 @@ pima |>
 ```{r chunk6-Ashu, include=TRUE, echo=FALSE, warning=FALSE}
 pima |>
   ggplot(
-    aes(mass, glucose, shape= diabetes)) +
+    aes(mass, glucose, color= diabetes)) +
   geom_point()
+
 ```
+
+#Ashu 
