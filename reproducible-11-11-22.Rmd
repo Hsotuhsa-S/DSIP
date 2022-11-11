@@ -6,6 +6,7 @@ output:
   pdf_document: default
   html_document: default
 ---
+Das ist so ein alter Branch, das muss doch einen Konflikt geben.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -29,8 +30,8 @@ Das hier ist ein Plot:
 ```{r chunk3, include=TRUE, echo=FALSE, warning=FALSE}
 pima |>
   mutate(age_cat = case_when(
-    age <= 30 ~ 'young',
-    age >= 31 & age <= 42 ~ 'old',
+    age <= 29 ~ 'young',
+    age >= 30 & age <= 42 ~ 'old',
     age >= 43 ~ 'very old'),
     age_cat = as.factor(age_cat)) |>
   mutate(pregnancy = case_when(
