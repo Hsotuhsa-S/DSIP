@@ -1,0 +1,56 @@
+---
+title: "reproducible_11-11-2022"
+author: "Samson-F"
+date: "2022-11-11"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+Das ist der Tibble vom Diabetes-Datensatz:
+```{r chunk1, include=FALSE, echo=FALSE, warning=FALSE}
+library(tidyverse)
+library(mlbench)
+library(ggplot2)
+data("PimaIndiansDiabetes2")
+pima <- PimaIndiansDiabetes2
+```
+```{r chunk2, include=TRUE, echo=FALSE, warning=FALSE}
+as.tibble(pima)
+```
+
+Das hier ist ein Plot:
+
+```{r chunk3, include=TRUE, echo=FALSE, warning=FALSE}
+pima |>
+  mutate(age_cat = case_when(
+    age <= 30 ~ 'young',
+    age >= 31 & age <= 42 ~ 'old',
+    age >= 43 ~ 'very old'),
+    age_cat = as.factor(age_cat)) |>
+  mutate(pregnancy = case_when(
+    pregnant <5 ~ 'few',
+    pregnant >=5 ~'many'
+  )) |>
+  ggplot(
+    aes(diabetes, glucose, fill = age_cat)) +
+  geom_boxplot(alpha = 0.2, size = 0.2) +
+  facet_wrap(. ~ age_cat)
+```
+
+
+```{r chunk4, include=FALSE, echo=FALSE, warning=FALSE}
+x <- summarize(pima, mean(glucose, na.rm=TRUE))
+```
+
+Das ist der Mean von *glucose*: $`r x`$
+
+### References
+Habe ich noch nicht verstanden
+
+
