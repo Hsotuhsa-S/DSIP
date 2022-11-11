@@ -62,4 +62,12 @@ pima |>
   geom_violin()
 ```
 
-  
+## Hallo Feidrich 
+### Scatter plot mass vs Glucose
+
+```{r chunk6-Ashu, include=TRUE, echo=FALSE, warning=FALSE}
+pima |>
+  ggplot(
+    aes(mass, glucose, shape= diabetes)) +
+  geom_point()
+```
